@@ -27,11 +27,11 @@ WinMain PROC
     ; lpCaption to x2
 	adrp        x8,hi_string
 	add         x2,x8,hi_string
+    ; uType = MB_OK (i.e. 0) to x3
+	mov         w3,#0
     ; __imp_MessageBoxA address to x8
 	adrp        x8,__imp_MessageBoxA
 	ldr         x8,[x8,__imp_MessageBoxA]
-    ; uType = MB_OK (i.e. 0) to x3
-	mov         w3,#0
     ; Call the function
 	blr         x8
 
