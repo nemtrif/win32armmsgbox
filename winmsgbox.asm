@@ -38,6 +38,8 @@ WinMain PROC
 	blr         x8
 
     ; Call ExitProcess(0)
+    ; Raymond Chen explains why: 
+    ; https://devblogs.microsoft.com/oldnewthing/20100827-00/?p=13023
 	adrp        x8,__imp_ExitProcess
 	ldr         x8,[x8,__imp_ExitProcess]
 	mov         w0,#0
