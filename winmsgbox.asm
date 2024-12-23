@@ -1,6 +1,8 @@
 ; Linker directives
     AREA	|.drectve|, DRECTVE
     IMPORT	|__imp_MessageBoxA|
+    IMPORT	|__imp_ExitProcess|
+
     EXPORT	WinMain
 
 ; Read-only initialized data - i.e. constants
@@ -35,12 +37,12 @@ WinMain PROC
     ; Call the function
 	blr         x8
 
-    ; Return 0
+    ; Call ExitProcess(0)
+	adrp        x8,__imp_ExitProcess
+	ldr         x8,[x8,__imp_ExitProcess]
 	mov         w0,#0
-    ; Function epilogue
-	ldp         fp,lr,[sp],#0x10
-    ; Return from the function
-	ret
+	blr         x8
+	brk         #0xF000
 
     ENDP  ; WinMain
 
