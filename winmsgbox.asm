@@ -1,7 +1,7 @@
 ; Linker directives
     AREA	|.drectve|, DRECTVE
-    IMPORT	|__imp_MessageBoxA|
-    IMPORT	|__imp_ExitProcess|
+    IMPORT	__imp_MessageBoxA
+    IMPORT	__imp_ExitProcess
 
     EXPORT	WinMain
 
