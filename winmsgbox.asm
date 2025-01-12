@@ -44,7 +44,6 @@ WinMain PROC
 	ldr         x8,[x8,__imp_ExitProcess]
 	mov         w0,#0
 	blr         x8
-	brk         #0xF000
 
     ENDP  ; WinMain
 
